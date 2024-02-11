@@ -1,16 +1,16 @@
 # Домашнее задание к занятию "`Кеширование Redis/memcached`" - `Рамазанов Бакит`
 
 
-Задание 1. Elasticsearch 
+### Задание 1. Elasticsearch 
 
 Установите и запустите Elasticsearch, после чего поменяйте параметр cluster_name на случайный. 
 
 *Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным Elasticsearch. Где будет виден нестандартный cluster_name*.
 
-
+![Elasticsearch](ссылка на изображение)](https://github.com/ramazanbb/SYSDB-26/blob/main/img/elastic1.png)
 ---
 
-### Задание 2. Memcached
+### Задание 2. Kibana
 
 Установите и запустите Kibana.
 
@@ -18,7 +18,7 @@
 
 ---
 
-### Задание 3. Удаление по TTL в Memcached
+### Задание 3. Logstash
 
 Установите и запустите Logstash и Nginx. С помощью Logstash отправьте access-лог Nginx в Elasticsearch. 
 
@@ -28,7 +28,7 @@
 
 ---
 
-### Задание 4. Filebeat. 
+### Задание 4. Filebeat.  
 
 Установите и запустите Filebeat. Переключите поставку логов Nginx с Logstash на Filebeat. 
 

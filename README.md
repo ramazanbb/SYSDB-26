@@ -24,7 +24,7 @@
 
 *Приведите скриншот systemctl status memcached, где будет видно, что memcached запущен.*
 
-![Memcached](https://github.com/ramazanbb/SYSDB-26/blob/main/img/memcached1.png):
+![Memcached](https://github.com/ramazanbb/SYSDB-26/blob/main/img/memcached1.png)
 
 ---
 
@@ -33,6 +33,9 @@
 Запишите в memcached несколько ключей с любыми именами и значениями, для которых выставлен TTL 5. 
 
 *Приведите скриншот, на котором видно, что спустя 5 секунд ключи удалились из базы.*
+
+![Memcached](https://github.com/ramazanbb/SYSDB-26/blob/main/img/memcached2.png)
+
 
 ---
 

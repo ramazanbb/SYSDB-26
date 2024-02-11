@@ -26,7 +26,6 @@
 
 ![Memcached](https://github.com/ramazanbb/SYSDB-26/blob/main/img/memcached1.png):
 
-решение
 ---
 
 ### Задание 3. Удаление по TTL в Memcached

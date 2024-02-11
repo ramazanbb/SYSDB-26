@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Кеширование Redis/memcached`" - `Рамазанов Бакит`
+# Домашнее задание к занятию "`ELK`" - `Рамазанов Бакит`
 
 
 ### Задание 1. Elasticsearch 
@@ -7,7 +7,7 @@
 
 *Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным Elasticsearch. Где будет виден нестандартный cluster_name*.
 
-![Elasticsearch](ссылка на изображение)](https://github.com/ramazanbb/SYSDB-26/blob/main/img/elastic1.png)
+![Elasticsearch](https://github.com/ramazanbb/SYSDB-26/blob/main/img/elastic1.png)
 ---
 
 ### Задание 2. Kibana

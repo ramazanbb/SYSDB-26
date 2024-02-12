@@ -25,7 +25,7 @@
 
 *Приведите скриншот интерфейса Kibana, на котором видны логи Nginx.*
 
-
+![Kibana](https://github.com/ramazanbb/SYSDB-26/blob/main/img/kibana3.png)
 
 ---
 

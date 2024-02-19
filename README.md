@@ -44,7 +44,7 @@
 
 Проект на который назначен - наименование проекта для конкретного сотрудника.
 
-``
+
 employees (
 
     id_employee SERIAL PRIMARY KEY,
@@ -69,9 +69,7 @@ employees (
     
 );
 
-``
 
-``
 subdivisions (
     
     id_subdivision SERIAL PRIMARY KEY,
@@ -83,8 +81,7 @@ subdivisions (
     office_id INTEGER REFERENCES offices(id_office)
 );
 
-``
-``
+
 type_of_subdivision (
     
     id_of_type SERIAL PRIMARY KEY,
@@ -92,8 +89,7 @@ type_of_subdivision (
     type VARCHAR(50) NOT NULL
 );
 
-``
-``
+
 offices (
     
     id_office SERIAL PRIMARY KEY,
@@ -101,8 +97,7 @@ offices (
     office VARCHAR(200) NOT NULL
 );
 
-``
-``
+
 projects (
     
     id_project SERIAL PRIMARY KEY,
@@ -110,18 +105,16 @@ projects (
     project VARCHAR(100) NOT NULL
 );
 
-``
-``
+
 ranks (
     id_rank SERIAL PRIMARY KEY,
     rank VARCHAR(100) NOT NULL
 );
 
-``
-``
+
 
 salary (
     id_salary SERIAL PRIMARY KEY,
     salary REAL NOT NULL
 );
-``
+

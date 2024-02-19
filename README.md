@@ -66,7 +66,9 @@ employees (
     
     hired_since DATE NOT NULL
 );
+
 ``
+
 ``
 subdivisions (
     
@@ -78,6 +80,7 @@ subdivisions (
     
     office_id INTEGER REFERENCES offices(id_office)
 );
+
 ``
 ``
 type_of_subdivision (
@@ -86,6 +89,7 @@ type_of_subdivision (
     
     type VARCHAR(50) NOT NULL
 );
+
 ``
 ``
 offices (
@@ -94,6 +98,7 @@ offices (
     
     office VARCHAR(200) NOT NULL
 );
+
 ``
 ``
 projects (
@@ -102,14 +107,17 @@ projects (
     
     project VARCHAR(100) NOT NULL
 );
+
 ``
 ``
 ranks (
     id_rank SERIAL PRIMARY KEY,
     rank VARCHAR(100) NOT NULL
 );
+
 ``
 ``
+
 salary (
     id_salary SERIAL PRIMARY KEY,
     salary REAL NOT NULL

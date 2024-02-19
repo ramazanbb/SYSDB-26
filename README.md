@@ -45,41 +45,61 @@
 Проект на который назначен - наименование проекта для конкретного сотрудника.
 ``
 employees (
+
     id_employee SERIAL PRIMARY KEY,
+
     last_name VARCHAR(50) NOT NULL,
+    
     first_name VARCHAR(50) NOT NULL,
+    
     surname VARCHAR(50),
+    
     rank_id INTEGER REFERENCES ranks(id_rank),
+    
     salary_id INTEGER REFERENCES salary(id_salary),
+    
     subdivision_id INTEGER REFERENCES subdivisions(id_subdivision),
+    
     office_id INTEGER REFERENCES offices(id_office),
+    
     project_id INTEGER REFERENCES projects(id_project),
+    
     hired_since DATE NOT NULL
 );
 ``
 ``
 subdivisions (
+    
     id_subdivision SERIAL PRIMARY KEY,
+    
     subdivision VARCHAR(100) NOT NULL,
+    
     type_of_subdivision_id INTEGER REFERENCES type_of_subdivision(id_of_type),
+    
     office_id INTEGER REFERENCES offices(id_office)
 );
 ``
 ``
 type_of_subdivision (
+    
     id_of_type SERIAL PRIMARY KEY,
+    
     type VARCHAR(50) NOT NULL
 );
 ``
 ``
 offices (
+    
     id_office SERIAL PRIMARY KEY,
+    
     office VARCHAR(200) NOT NULL
 );
 ``
 ``
 projects (
+    
     id_project SERIAL PRIMARY KEY,
+    
     project VARCHAR(100) NOT NULL
 );
 ``

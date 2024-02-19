@@ -43,6 +43,7 @@
 Адрес филиала - местонахождение филиала
 
 Проект на который назначен - наименование проекта для конкретного сотрудника.
+
 ``
 employees (
 
@@ -65,6 +66,7 @@ employees (
     project_id INTEGER REFERENCES projects(id_project),
     
     hired_since DATE NOT NULL
+    
 );
 
 ``

@@ -1,37 +1,27 @@
 # Домашнее задание к занятию "`ELK`" - `Рамазанов Бакит`
 
 
-### Задание 1. Elasticsearch 
+### Легенда
 
-Установите и запустите Elasticsearch, после чего поменяйте параметр cluster_name на случайный. 
+Заказчик передал вам [файл в формате Excel](https://github.com/netology-code/sdb-homeworks/blob/main/resources/hw-12-1.xlsx), в котором сформирован отчёт. 
 
-*Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным Elasticsearch. Где будет виден нестандартный cluster_name*.
+На основе этого отчёта нужно выполнить следующие задания.
 
-![Elasticsearch](https://github.com/ramazanbb/SYSDB-26/blob/main/img/elastic1.png)
----
+### Задание 1
 
-### Задание 2. Kibana
+Опишите не менее семи таблиц, из которых состоит база данных:
 
-Установите и запустите Kibana.
+- какие данные хранятся в этих таблицах;
+- какой тип данных у столбцов в этих таблицах, если данные хранятся в PostgreSQL.
 
-*Приведите скриншот интерфейса Kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty*.
+Приведите решение к следующему виду:
 
-![Kibana](https://github.com/ramazanbb/SYSDB-26/blob/main/img/kibana1.png)
----
+Сотрудники (
 
-### Задание 3. Logstash
-
-Установите и запустите Logstash и Nginx. С помощью Logstash отправьте access-лог Nginx в Elasticsearch. 
-
-*Приведите скриншот интерфейса Kibana, на котором видны логи Nginx.*
-
-![Kibana](https://github.com/ramazanbb/SYSDB-26/blob/main/img/kibana3.png)
+- идентификатор, первичный ключ, serial,
+- фамилия varchar(50),
+- ...
+- идентификатор структурного подразделения, внешний ключ, integer).
 
 ---
 
-### Задание 4. Filebeat.  
-
-Установите и запустите Filebeat. Переключите поставку логов Nginx с Logstash на Filebeat. 
-
-*Приведите скриншот интерфейса Kibana, на котором видны логи Nginx, которые были отправлены через Filebeat.*
-![Kibana](https://github.com/ramazanbb/SYSDB-26/blob/main/img/kibana4.png)

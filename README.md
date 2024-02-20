@@ -23,7 +23,12 @@ WHERE payment_date BETWEEN '2005-06-15' AND '2005-06-18'  AND amount > 10.00;
 ### Задание 3
 
 Получите последние пять аренд фильмов.
-
+```
+SELECT rental_id, rental_date 
+FROM rental
+ORDER BY rental_date DESC
+LIMIT 5;
+```
 ### Задание 4
 
 Одним запросом получите активных покупателей, имена которых Kelly или Willie. 

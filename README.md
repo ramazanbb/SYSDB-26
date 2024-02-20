@@ -8,9 +8,10 @@
 Получите уникальные названия районов из таблицы с адресами, которые начинаются на “K” и заканчиваются на “a” и не содержат пробелов.
 
 ``
-
 SELECT DISTINCT district
+
 FROM sakila.address
+
 WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
 ``

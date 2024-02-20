@@ -37,3 +37,14 @@ LIMIT 5;
 - все буквы в фамилии и имени из верхнего регистра переведите в нижний регистр,
 - замените буквы 'll' в именах на 'pp'.
 
+```
+SELECT 
+  customer_id,
+  LOWER(first_name) AS lower_first_name,
+  LOWER(last_name) AS lower_last_name,
+  REPLACE(LOWER(first_name), 'll', 'pp') AS replaced_first_name
+FROM 
+  sakila.customer
+WHERE 
+  first_name = 'Kelly' OR first_name = 'Willie';
+```

@@ -1,50 +1,44 @@
-# Домашнее задание к занятию "`SQL. Часть 1`" - `Рамазанов Бакит`
+# Домашнее задание к занятию "`Индексы`" - `Рамазанов Бакит`
 
 
 Задание можно выполнить как в любом IDE, так и в командной строке.
 
 ### Задание 1
 
-Получите уникальные названия районов из таблицы с адресами, которые начинаются на “K” и заканчиваются на “a” и не содержат пробелов.
+Напишите запрос к учебной базе данных, который вернёт процентное отношение общего размера всех индексов к общему размеру всех таблиц.
 
 ```
-SELECT DISTINCT district
-FROM sakila.address
-WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
+SELECT table_schema as DB_name
+	,CONCAT(ROUND((SUM(index_length))*100/(SUM(data_length+index_length)),2),'%') '% of index'
+FROM information_schema.TABLES where TABLE_SCHEMA = 'sakila'
 ```
+
+
+
 ### Задание 2
 
-Получите из таблицы платежей за прокат фильмов информацию по платежам, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005 года **включительно** и стоимость которых превышает 10.00.
+Выполните explain analyze следующего запроса:
+```sql
+select distinct concat(c.last_name, ' ', c.first_name), sum(p.amount) over (partition by c.customer_id, f.title)
+from payment p, rental r, customer c, inventory i, film f
+where date(p.payment_date) = '2005-07-30' and p.payment_date = r.rental_date and r.customer_id = c.customer_id and i.inventory_id = r.inventory_id
 ```
-SELECT payment_id, amount, payment_date
-FROM sakila.payment
-WHERE payment_date >= '2005-06-15' AND payment_date < '2005-06-19' AND amount > 10.00;
-```
-### Задание 3
+- перечислите узкие места;
+- оптимизируйте запрос: внесите корректировки по использованию операторов, при необходимости добавьте индексы.
 
-Получите последние пять аренд фильмов.
+решение:
 ```
-SELECT rental_id, rental_date 
-FROM rental
-ORDER BY rental_date DESC
-LIMIT 5;
+EXPLAIN ANALYZE
+SELECT DISTINCT CONCAT(c.last_name, ' ', c.first_name), 
+       SUM(p.amount) OVER (PARTITION BY c.customer_id)
+FROM payment p
+JOIN customer c ON p.customer_id = c.customer_id
+WHERE DATE(p.payment_date) = '2005-07-30';
 ```
-### Задание 4
+Изменения и оптимизации:
 
-Одним запросом получите активных покупателей, имена которых Kelly или Willie. 
+Лишние таблицы и столбцы: Убраны ненужные таблицы rental, inventory, и film, так как данные из них не используются.
 
-Сформируйте вывод в результат таким образом:
-- все буквы в фамилии и имени из верхнего регистра переведите в нижний регистр,
-- замените буквы 'll' в именах на 'pp'.
+Индексы: Убедитесь, что у столбца payment.payment_date и customer.customer_id существуют индексы для улучшения производительности.
 
-```
-SELECT 
-  customer_id,
-  LOWER(first_name) AS lower_first_name,
-  LOWER(last_name) AS lower_last_name,
-  REPLACE(LOWER(first_name), 'll', 'pp') AS replaced_first_name
-FROM 
-  sakila.customer
-WHERE 
-  first_name = 'Kelly' OR first_name = 'Willie';
-```
+Условие для оконной функции: Убрана часть условия из PARTITION BY, так как вам нужна сумма по customer_id, а film.title больше не используется.

@@ -35,6 +35,7 @@ FROM payment p
 JOIN customer c ON p.customer_id = c.customer_id
 WHERE DATE(p.payment_date) = '2005-07-30';
 ```
+
 Изменения и оптимизации:
 
 Лишние таблицы и столбцы: Убраны ненужные таблицы rental, inventory, и film, так как данные из них не используются.
@@ -42,3 +43,14 @@ WHERE DATE(p.payment_date) = '2005-07-30';
 Индексы: Убедитесь, что у столбца payment.payment_date и customer.customer_id существуют индексы для улучшения производительности.
 
 Условие для оконной функции: Убрана часть условия из PARTITION BY, так как вам нужна сумма по customer_id, а film.title больше не используется.
+
+
+Добработка
+```
+EXPLAIN ANALYZE
+SELECT CONCAT(c.last_name, ' ', c.first_name) AS customer_name, 
+       SUM(p.amount) OVER (PARTITION BY c.customer_id) AS total_amount
+FROM payment p
+JOIN customer c ON p.customer_id = c.customer_id
+WHERE p.payment_date >= '2005-07-30' AND p.payment_date < DATE_ADD('2005-07-30', INTERVAL 1 DAY);
+```
